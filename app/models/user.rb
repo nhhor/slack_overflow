@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # ???
+  has_many :questions
+  has_many :answers
+  # ???
+
   attr_accessor :password
   validates_confirmation_of :password
   validates_length_of :password, minimum: 8
@@ -18,4 +23,11 @@ class User < ApplicationRecord
       nil
     end
   end
+
+
+  def clear
+    User.destroy_all
+  end
+
+  
 end
